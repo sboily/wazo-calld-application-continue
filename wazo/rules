@@ -1,0 +1,27 @@
+#!/bin/sh
+# Copyright 2023 Wazo Team (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0+
+
+case "$1" in
+    build)
+        python3 setup.py bdist
+        ;;
+
+    package)
+        tar xvf dist/wazo-calld-application-continue-*.tar.gz -C ${pkgdir}
+        cp -R etc ${pkgdir}/
+        ;;
+
+    install)
+        systemctl restart wazo-calld
+        ;;
+
+    uninstall)
+        systemctl restart wazo-calld
+        ;;
+
+    *)
+        echo "$0 called with unknown argument '$1'" >&2
+        exit 1
+    ;;
+esac

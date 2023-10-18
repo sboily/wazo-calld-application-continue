@@ -1,0 +1,10 @@
+name: wazo-calld-application-continue
+namespace: sboily
+version: 0.0.1
+author: Sylvain Boily
+display_name: Continue in dialplan from application
+min_wazo_version: 23.08
+tags:
+  - experimental
+  - application
+homepage: https://github.com/sboily/wazo-calld-application-continue

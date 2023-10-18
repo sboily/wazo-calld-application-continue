@@ -1,0 +1,42 @@
+paths:
+  /applications/{application_uuid}/calls/{call_id}/continue:
+    put:
+      summary: Continue call into specific dialplan context/exten/priority
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.update`'
+      parameters:
+        - $ref: '#/parameters/ApplicationUUID'
+        - $ref: '#/parameters/ApplicationCallID'
+        - $ref: '#/parameters/CallContinue'
+      tags:
+      - applications
+      responses:
+        '204':
+          description: Call will continue in dialplan
+          schema:
+            $ref: '#/definitions/CallContinue'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+definitions:
+  CallContinue:
+    type: object
+    properties:
+      context:
+        description: Context
+        type: string
+      extension:
+        description: Extension
+        type: string
+      priority:
+        description: Priority
+        type: integer
+      label:
+        description: Label
+        type: string
+parameters:
+  CallContinue:
+    name: body
+    in: body
+    description: Parameters to continue call
+    required: true
+    schema:
+      $ref: '#/definitions/CallContinue'
