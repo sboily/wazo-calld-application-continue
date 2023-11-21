@@ -3,7 +3,7 @@ Add continue to dialplan in applications control to wazo-calld.
 Installation
 ------------
 
-    wazo-plugind-cli -c "install git https://github.com/sboily/wazo-calld-application-continue"
+    wazo-plugind-cli -c "install git https://github.com/sboily/wazo-calld-application-continue --ref main"
 
 Use
 ---
