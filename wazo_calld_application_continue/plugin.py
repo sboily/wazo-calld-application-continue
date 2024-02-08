@@ -3,7 +3,7 @@
 
 from wazo_amid_client import Client as AmidClient
 
-from .resources import CallContinueResource, SwitchCallContinue
+from .resources import CallContinueResource, SwitchCallResource
 from .services import CallContinueService
 
 
