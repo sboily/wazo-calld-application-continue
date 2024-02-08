@@ -23,4 +23,7 @@ class CallContinueService:
             'Priority': 1
         }
 
-        return self._amid.action('redirect', action)
+        ami_cmd = self._amid.action('redirect', action)
+        return {
+            'application_uuid': application_uuid
+        }
