@@ -6,9 +6,9 @@ import logging
 
 class CallContinueService:
 
-    def __init__(self, ari, ami):
+    def __init__(self, ari, amid):
         self._ari = ari
-        self._ami = ami
+        self._amid = amid
 
     def call_continue(self, call_id, request):
         channel = self._ari.channels.get(channelId=call_id)
@@ -19,7 +19,8 @@ class CallContinueService:
         action = {
             'Channel': channel.json['name'],
             'Exten': 's',
-            'Context': f'stasis-wazo-app-{application_uuid}'
+            'Context': f'stasis-wazo-app-{application_uuid}',
+            'Priority': 1
         }
 
-        return self.amid.action('redirect', action)
+        return self._amid.action('redirect', action)

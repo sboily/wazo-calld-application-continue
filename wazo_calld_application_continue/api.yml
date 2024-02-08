@@ -17,6 +17,7 @@ paths:
         '503':
           $ref: '#/responses/AnotherServiceUnavailable'
   /calls/{call_id}/applications/{application_uuid}:
+    put:
       summary: Switch call into specific application
       description: '**Required ACL:** `calld.calls.{call_id}.applications.{application_uuid}.update`'
       parameters:
@@ -47,7 +48,7 @@ definitions:
       label:
         description: Label
         type: string
-  CallContinue:
+  SwitchCall:
     type: object
     properties:
       application_uuid:

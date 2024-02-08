@@ -18,7 +18,7 @@ class Plugin(object):
         amid_client = AmidClient(**config['amid'])
         token_changed_subscribe(amid_client.set_token)
 
-        service = CallContinueService(ari.client, ami_client)
+        service = CallContinueService(ari.client, amid_client)
 
         api.add_resource(CallContinueResource, '/applications/<application_uuid>/calls/<call_id>/continue', resource_class_args=[service])
         api.add_resource(SwitchCallResource, '/calls/<call_id>/applications/<application_uuid>', resource_class_args=[service])
