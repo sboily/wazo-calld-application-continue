@@ -1,8 +1,8 @@
 name: wazo-calld-application-continue
 namespace: sboily
-version: 0.0.1
+version: 0.0.2
 author: Sylvain Boily
-display_name: Continue in dialplan from application
+display_name: Continue in dialplan from application or switch to application from dialplan
 min_wazo_version: 23.08
 tags:
   - experimental

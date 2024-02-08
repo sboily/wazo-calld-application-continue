@@ -1,4 +1,5 @@
 Add continue to dialplan in applications control to wazo-calld.
+Add switch from dialplan to application to be controlled by wazo-calld.
 
 Installation
 ------------

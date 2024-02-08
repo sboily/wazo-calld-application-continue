@@ -16,6 +16,21 @@ paths:
             $ref: '#/definitions/CallContinue'
         '503':
           $ref: '#/responses/AnotherServiceUnavailable'
+  /calls/{call_id}/applications/{application_uuid}:
+      summary: Switch call into specific application
+      description: '**Required ACL:** `calld.calls.{call_id}.applications.{application_uuid}.update`'
+      parameters:
+        - $ref: '#/parameters/ApplicationCallID'
+        - $ref: '#/parameters/ApplicationUUID'
+      tags:
+      - calls
+      responses:
+        '204':
+          description: Call will continue into an application
+          schema:
+            $ref: '#/definitions/SwitchCall'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
 definitions:
   CallContinue:
     type: object
@@ -31,6 +46,12 @@ definitions:
         type: integer
       label:
         description: Label
+        type: string
+  CallContinue:
+    type: object
+    properties:
+      application_uuid:
+        description: Application UUID
         type: string
 parameters:
   CallContinue:
