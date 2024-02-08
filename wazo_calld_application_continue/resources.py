@@ -29,7 +29,7 @@ class SwitchCallResource(AuthResource):
         self._service = service
 
     @required_acl('calld.calls.{call_id}.applications.{application_uuid}.update')
-    def put(self, call_id, application_uuid, call_id):
+    def put(self, call_id, application_uuid):
         result = self._service.switch_call_to_application(call_id, application_uuid)
 
         return result, 204
